@@ -1,13 +1,5 @@
-import globus_compute_sdk
 from globus_compute_sdk import Client
 from dotenv import load_dotenv
-from fusion_compute import ENV_PATH
-import os, time
-import argparse
-from scipy import stats
-import json
-from fusion_compute.machine_settings import machine_settings
-from matplotlib import pyplot as plt
 
 gc = Client()
 

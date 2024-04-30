@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     args = arg_parse()
 
-    if args.type == "idl":
+    if args.type == "idl" or args.type == "IDL":
         run_batch("HELLO_IDL")
     elif args.type == "python":
         run_batch("HELLO_PYTHON")

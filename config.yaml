@@ -1,0 +1,23 @@
+display_name: omega_short
+engine:
+  max_retries_on_system_failure: 2
+  max_workers: 10
+  prefetch_capacity: 0
+  provider:
+    init_blocks: 0
+    launcher:
+      overrides: '--mpi=pmi2'
+      type: SrunLauncher
+    max_blocks: 2
+    min_blocks: 0
+    nodes_per_block: 1
+    exclusive: False
+    partition: short
+    scheduler_options: '#SBATCH --cpus-per-task=10'
+    type: SlurmProvider
+    walltime: 00:30:00
+    worker_init: module unload python; module unload mdsplus; module load mamba; mamba activate /fusion/projects/results/ionorbgpu/workflow_files/globus_env; module load mdsplus; module load ionorbgpu/birth; export IDL_CPU_TPOOL_NTHREADS=1; cd $HOME/.globus_compute/omega_short
+  strategy:
+    max_idletime: 300
+    type: SimpleStrategy
+  type: GlobusComputeEngine
