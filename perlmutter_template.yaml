@@ -1,0 +1,24 @@
+engine:
+  address:
+    ifname: hsn0
+    type: address_by_interface
+  cpu_affinity: block
+  max_retries_on_system_failure: 2
+  prefetch_capacity: 0
+  provider:
+    account: m3792
+    launcher:
+      overrides: "-c 256"
+      type: SrunLauncher
+    init_blocks: 0
+    min_blocks: 0
+    max_blocks: 1
+    nodes_per_block: 1
+    scheduler_options: '#SBATCH -C cpu --qos=realtime'
+    type: SlurmProvider
+    walltime: 00:90:00
+    worker_init: cd $SCRATCH/DIIID/globus
+  strategy:
+    max_idletime: 300
+    type: SimpleStrategy
+  type: GlobusComputeEngine
